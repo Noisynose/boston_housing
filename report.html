@@ -13253,6 +13253,8 @@ AB5smZmZmZmZNYAHW2ZmZmZmZg3gwZaZmZmZmVkD/D9DbrbccYBBQAAAAABJRU5ErkJggg==
 The training curve seems to start stabilizing (converging) to a particular score.  On graph 2, we have about 0.8 score.
 The testing curve does about the same thing. It is converging towards 0.8.  However, adding more points, based on other graphs, would probably make it diverge.
 For graph 2, the testing curve's slope seems to be negative, so having more training points won't help much, it may even degrade the results.</p>
+<p><strong> EDIT 1 </strong></p>
+<p>I made a clear mistake there. I will clarify what I meant.  With the same idea as having more training points won't help much, the end of the slope seems to be stabilizing (remains flat at the end).  My guess here is that the maximum has been reached and adding more points will degrade the testing curve.  I mistook compraing graph 2 with graph 3 and 4 (which are less fit models).</p>
 
 </div>
 </div>
@@ -13740,6 +13742,8 @@ jDGmXbHEZ4wxpl2xxGeMMaZdscRnjDGmXbHEZ4wxpl35f2ux3jj6+E5PAAAAAElFTkSuQmCC
 <p><strong>Answer: </strong></p>
 <p>With a maximum depth of 1, the model suffers from high bias.  We can see the validation score is close to the training score, which means that the data is clustered together.</p>
 <p>With a maximum depth of 10, the model suffers from high variance.  We can see the validation score deteriorate as the maximum depth increases.</p>
+<p><strong> EDIT 1 </strong></p>
+<p>Okay, the image you showed me basicly says everything.  Let me rephrase it in my own words.  Having a low training score and a low validation score (which is depicted by the max_depth 1 graph) demonstrates high bias.  Furthermore, the model knows not enough about the data to be able to predict correctly.  Both curves have low scores and have a close gap.  On a max depth of 10, the model knows so much about the data that it can't imagine itself predict similar data. It overfits and demonstrates high variance.  Graphically, there is a huge gap between the two curves, despite having the training curve almost a perfect score of 1.  The validation score is decreasing since it has trouble analyzing unseen data.</p>
 
 </div>
 </div>
@@ -13793,6 +13797,9 @@ jDGmXbHEZ4wxpl2xxGeMMaZdscRnjDGmXbHEZ4wxpl35f2ux3jj6+E5PAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>Grid search technique helps define multiple parameters to test during the learning steps.  With the same ideas as doing multiple cross validations with different testing subsets size, it helps optimize a learning algorithm by averaging the results from each combination of parameters run by it.</p>
+<p><strong> EDIT </strong></p>
+<p>After a more concise reading on the subject (<a href="http://scikit-learn.org/stable/modules/grid_search.html">http://scikit-learn.org/stable/modules/grid_search.html</a>),  the GridSearchCV function iterates on each of the hyper-parameters and tests the estimator with each combination of parameters.  You can add a cross-validation technique if you want to.  It returns the best set of parameters used with the experience, based on the scorer function passed as a parameter.</p>
+<p>Another grid search technique, RandomizedSearchCV, randomise on the hyper-parameters instead of going exhaustively on them.</p>
 
 </div>
 </div>
@@ -14036,6 +14043,8 @@ Predicted selling price for Client 3&#39;s home: $979,300.00
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>The results here seem logical to me.  High number of rooms vs low poverty level vs low student-teacher ratio predict a higher value (and vice-versa).</p>
+<p><strong> EDIT 1 </strong></p>
+<p>To expand on the subject, from what I understand, the number of rooms in home increases the size of the terrain.  Therefore, it demands a greater space to construct (normally).  Lower poverty level equals richer neighborhood.  Student-teacher ratio is the same thing as the later feature.  So comparing the 3 clients together, and their results, it seems fine to me.  Client 2 &lt; Client 1 &lt; Client 3.</p>
 
 </div>
 </div>
